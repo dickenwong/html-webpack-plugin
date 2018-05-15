@@ -1466,6 +1466,23 @@ describe('HtmlWebpackPlugin', function () {
     }, ['<html lang="en" manifest="foo.appcache">'], null, done);
   });
 
+  it('allows not to add manifest', function (done) {
+    var AppCachePlugin = require('appcache-webpack-plugin');
+    testHtmlPlugin({
+      entry: path.join(__dirname, 'fixtures/index.js'),
+      output: {
+        path: OUTPUT_DIR,
+        filename: 'index_bundle.js'
+      },
+      plugins: [
+        new AppCachePlugin({settings: ['prefer-online']}),
+        new HtmlWebpackPlugin({
+          manifest: false
+        })
+      ]
+    }, ['<html>'], null, done);
+  });
+
   it('works with webpack bannerplugin', function (done) {
     testHtmlPlugin({
       entry: path.join(__dirname, 'fixtures/index.js'),

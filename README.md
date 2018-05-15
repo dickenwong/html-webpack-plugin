@@ -124,6 +124,7 @@ Allowed values are as follows
 |**[`chunksSortMode`](#plugins)**|`{String\|Function}`|`auto`|Allows to control how chunks should be sorted before they are included to the HTML. Allowed values are `'none' \| 'auto' \| 'dependency' \| 'manual' \| {Function}`|
 |**[`excludeChunks`](#)**|`{Array.<string>}`|``|Allows you to skip some chunks (e.g don't add the unit-test chunk)|
 |**[`xhtml`](#)**|`{Boolean}`|`false`|If `true` render the `link` tags as self-closing (XHTML compliant)|
+|**[`manifest`](#)**|`{Boolean}`|`true`|If `true` add manifest to `html` tag when there is a `*.appcache` asset|
 
 Here's an example webpack config illustrating how to use these options
 

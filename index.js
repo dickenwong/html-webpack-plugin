@@ -33,7 +33,8 @@ class HtmlWebpackPlugin {
       chunksSortMode: 'auto',
       meta: {},
       title: 'Webpack App',
-      xhtml: false
+      xhtml: false,
+      manifest: true
     }, options);
   }
 
@@ -429,8 +430,12 @@ class HtmlWebpackPlugin {
       // Will contain all css files
       css: [],
       // Will contain the html5 appcache manifest files if it exists
-      manifest: Object.keys(compilation.assets).filter(assetFile => path.extname(assetFile) === '.appcache')[0]
+      manifest: null
     };
+
+    if (this.options.manifest) {
+      assets.manifest = Object.keys(compilation.assets).filter(assetFile => path.extname(assetFile) === '.appcache')[0];
+    }
 
     // Append a hash for cache busting
     if (this.options.hash) {
